@@ -1,6 +1,9 @@
 provider "aws"{
   region = "us-west-2"
 }
+data "aws_ecr_repository" "asgen" {
+  name = "ecr-repository"
+}
 resource "aws_batch_job_queue" "asgen_queue" {
   name = "tf-test-batch-job-queue"
   state = "ENABLED"
