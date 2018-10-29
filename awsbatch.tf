@@ -1,15 +1,25 @@
+#-----Provider details---------------
 provider "aws"{
   region = "us-west-2"
 }
+
+#---ECR Repo creation-----------------
+
 data "aws_ecr_repository" "asgen" {
   name = "ecr-repository"
 }
+
+#---Aws Batch job creation-----------------
+
 resource "aws_batch_job_queue" "asgen_queue" {
   name = "tf-test-batch-job-queue"
   state = "ENABLED"
   priority = 1
   compute_environments = ["${aws_batch_compute_environment.asgen.arn}"]
 }
+
+#-------IAM Role creation-----------------
+
 resource "aws_iam_role" "ecs_instance_role" {
   name = "ecs_instance_role"
   assume_role_policy = <<EOF
@@ -27,6 +37,9 @@ resource "aws_iam_role" "ecs_instance_role" {
 }
 EOF
 }
+
+
+#-----Attach policy to IAM Role-----------------------
 
 resource "aws_iam_role_policy_attachment" "ecs_instance_role" {
   role       = "${aws_iam_role.ecs_instance_role.name}"
@@ -61,9 +74,13 @@ resource "aws_iam_role_policy_attachment" "aws_batch_service_role" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole"
 }
 
+#-----Security group & VPC------------------------------
+
+
 resource "aws_security_group" "asgen" {
   name = "aws_batch_compute_environment_security_group"
 }
+
 
 resource "aws_vpc" "default" {
   cidr_block = "172.31.0.0/16"
@@ -73,6 +90,9 @@ resource "aws_subnet" "Pub_Sub" {
   vpc_id = "${aws_vpc.default.id}"
   cidr_block = "172.31.16.0/20"
 }
+
+#-----Compute environment creation-----------------
+
 
 resource "aws_batch_compute_environment" "asgen" {
   compute_environment_name = "asgen"
@@ -95,6 +115,10 @@ resource "aws_batch_compute_environment" "asgen" {
   type = "MANAGED"
   depends_on = ["aws_iam_role_policy_attachment.aws_batch_service_role"]
 }
+
+#-----Aws batch job definition creation-----------------
+
+
 
 resource "aws_batch_job_definition" "asgen" {
     name = "tf_test_batch_job_definition"
