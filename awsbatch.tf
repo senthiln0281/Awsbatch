@@ -5,7 +5,7 @@ resource "aws_batch_job_queue" "asgen_queue" {
   name = "tf-test-batch-job-queue"
   state = "ENABLED"
   priority = 1
-  compute_environments = "${aws_batch_compute_environment.asgen.arn}"
+  compute_environments = ["${aws_batch_compute_environment.asgen.arn}","${aws_batch_compute_environment.asgen1.arn}"]
 }
 resource "aws_iam_role" "ecs_instance_role" {
   name = "ecs_instance_role"
