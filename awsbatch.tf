@@ -76,7 +76,7 @@ resource "aws_batch_compute_environment" "asgen" {
   compute_resources {
     instance_role = "${aws_iam_instance_profile.ecs_instance_role.arn}"
     instance_type = [
-      "t2.micro",
+      "m4.xlarge",
     ]
     max_vcpus = 2
     min_vcpus = 0
