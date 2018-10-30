@@ -126,7 +126,7 @@ resource "aws_batch_job_definition" "asgen" {
     container_properties = <<CONTAINER_PROPERTIES
 {
     "command": ["ls", "-la"],
-    "image": "busybox",
+    "image": "767885750242.dkr.ecr.us-west-2.amazonaws.com/asgen",
     "memory": 1024,
     "vcpus": 1,
     "volumes": [
@@ -134,7 +134,7 @@ resource "aws_batch_job_definition" "asgen" {
         "host": {
           "sourcePath": "/tmp"
         },
-        "name": "tmp"
+        "name": "asgen"
       }
     ],
     "environment": [
