@@ -1,0 +1,1 @@
+aws batch submit-job --job-name jobname --job-queue job-queue-name  --job-definition job-definition-name --region us-west-2
