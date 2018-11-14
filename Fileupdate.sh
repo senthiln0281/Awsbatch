@@ -6,5 +6,7 @@ export PATH=/home/ec2-user/Awsbatch/.local/bin:$PATH
 #git pull --rebase https://github.com/senthiln0281/Awsbatch.git --verbose
 #git pull https://github.com/senthiln0281/Awsbatch.git
 git pull --rebase origin 
+
+scp test2.txt ubuntu@172.31.28.122:/home/ubuntu
 pwd
 ls -l
