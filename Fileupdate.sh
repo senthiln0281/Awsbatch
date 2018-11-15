@@ -12,5 +12,5 @@ ls -l
 
 #Copy the files from jenkins server to remote server
 
-scp test2.txt ec2-user@10.0.19.82:/home/ec2-user.test
+scp test2.txt ec2-user@10.0.19.82:/home/ec2-user/test
 
