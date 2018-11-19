@@ -6,7 +6,7 @@ git clone https://github.com/senthiln0281/Awsbatch.git
 #git clone -branch Fileupdate https://github.com/senthiln0281/Awsbatch.git
 
 #Pull the repo to get latest updates
-git pull --rebase origin 
+#git pull --rebase origin 
 
 #List the files
 
@@ -29,7 +29,7 @@ ls -l
 #scp -r ec2-user@10.0.19.82:/home/ec2-user/test
 
 
-scp *.* ec2-user@10.0.19.82:/home/ec2-user/test
+#scp *.* ec2-user@10.0.19.82:/home/ec2-user/test
 
 #cd /var/lib/jenkins/workspace/FileUpdate
 
