@@ -36,7 +36,9 @@ pwd
 
 scp fileupdate.zip ec2-user@10.0.19.82:/home/ec2-user/test
 
-unzip fileupdate.zip
+unzip fileupdate.zip 
+
+A
 
 #cd /var/lib/jenkins/workspace/FileUpdate
 
