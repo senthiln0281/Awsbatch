@@ -19,3 +19,4 @@ echo $HOSTNAME
 cd /home/ec2-user/test
 yes | sudo unzip test.zip
 EOF
+exit
