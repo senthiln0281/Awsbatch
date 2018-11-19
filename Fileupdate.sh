@@ -1,14 +1,14 @@
 #!/bin/bash
 
 #Clone the repo
-#git clone https://github.com/senthiln0281/Awsbatch.git
+git clone https://github.com/senthiln0281/Awsbatch.git
 
-wget https://github.com/senthiln0281/Awsbatch/tree/master/Fileupdate
+#wget https://github.com/senthiln0281/Awsbatch/tree/master/test
 
 #git clone -branch Fileupdate https://github.com/senthiln0281/Awsbatch.git
 
 #Pull the repo to get latest updates
-#git pull --rebase origin 
+git pull --rebase origin 
 
 #List the files
 
