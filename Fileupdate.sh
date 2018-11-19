@@ -29,7 +29,7 @@ scp Fileupdatetest.sh ec2-user@10.0.19.82:/home/ec2-user/test
 #scp -r ec2-user@10.0.19.82:/home/ec2-user/test
 
 
-scp -v -r /var/lib/jenkins/workspace/FileUpdate ec2-user@10.0.19.82: /home/ec2-user/test
+scp -r /var/lib/jenkins/workspace/FileUpdate ec2-user@10.0.19.82:/home/ec2-user/test
 
 #cd /var/lib/jenkins/workspace/FileUpdate
 
