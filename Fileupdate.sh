@@ -39,7 +39,8 @@ pwd
 scp test.zip ec2-user@10.0.19.82:/home/ec2-user/test
 
 ssh ec2-user@10.0.19.82 
-cd /home/ec2-user/test | yes | sudo unzip test.zip
+cd /home/ec2-user/test
+yes | sudo unzip test.zip
 
 #yes | unzip fileupdate.zip
 
