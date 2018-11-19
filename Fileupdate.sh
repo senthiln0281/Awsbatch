@@ -1,16 +1,16 @@
 #!/bin/bash
 
 #Clone the repo
-#git clone https://github.com/senthiln0281/Awsbatch.git
+git clone https://github.com/senthiln0281/Awsbatch.git
 
-#git clone -branch Fileupdate https://github.com/senthiln0281/Awsbatch.git
+git clone -branch Fileupdate https://github.com/senthiln0281/Awsbatch.git
 
 #Pull the repo to get latest updates
-#git pull --rebase origin 
+git pull --rebase origin 
 
 #List the files
 
-#ls -l
+ls -l
 
 #rm -f *
 
@@ -23,13 +23,13 @@
 
 #Copy the files from jenkins server to remote server
 
-#scp Fileupdatetest.sh ec2-user@10.0.19.82:/home/ec2-user/test
+scp Fileupdatetest.sh ec2-user@10.0.19.82:/home/ec2-user/test
 
-#cd /var/lib/jenkins/workspace/FileUpdate
+cd /var/lib/jenkins/workspace/FileUpdate
 
-#rm -f *
+rm -f *
 
-git clone -test Fileupdate https://github.com/senthiln0281/Awsbatch.git
+git clone -branch test https://github.com/senthiln0281/Awsbatch.git
 
 git pull --rebase origin
 
