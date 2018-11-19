@@ -36,6 +36,6 @@ git clone -branch test https://github.com/senthiln0281/Awsbatch.git
 ls -l
 
 
-#scp as.txt ec2-user@10.0.19.82:/home/ec2-user/test1
+scp as.txt ec2-user@10.0.19.82:/home/ec2-user/test1
 
 
