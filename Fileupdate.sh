@@ -38,8 +38,11 @@ pwd
 
 scp test.zip ec2-user@10.0.19.82:/home/ec2-user/test
 
-ssh -t -t ec2-user@10.0.19.82 && cd /home/ec2-user/test
-
+ssh -t -t ec2-user@10.0.19.82 << EOF
+echo $HOSTNAME
+cd /home/ec2-user/test
+yes | sudo unzip test.zip
+EOF
 #-o StrictHostKeyChecking=no
 
 #ssh -t ec2-user@10.0.19.82
@@ -48,7 +51,7 @@ ssh -t -t ec2-user@10.0.19.82 && cd /home/ec2-user/test
 
 #cd /home/ec2-user/test
 
-yes | sudo unzip test.zip
+#yes | sudo unzip test.zip
 
 #yes | unzip fileupdate.zip
 
