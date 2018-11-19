@@ -14,6 +14,8 @@ wget https://github.com/senthiln0281/Awsbatch/tree/master/Fileupdate
 
 ls -l
 
+zip fileupdate.zip *.*
+
 #rm -f *
 
 #Create .ssh directory to save destination server credentials
@@ -32,7 +34,7 @@ ls -l
 
 pwd
 
-#scp -r /var/lib/jenkins/workspace/FileUpdate ec2-user@10.0.19.82:/home/ec2-user/test
+scp fileupdate.zip ec2-user@10.0.19.82:/home/ec2-user/test
 
 #cd /var/lib/jenkins/workspace/FileUpdate
 
