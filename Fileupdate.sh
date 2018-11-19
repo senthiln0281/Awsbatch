@@ -23,7 +23,7 @@ ls -l
 
 #Copy the files from jenkins server to remote server
 
-scp Fileupdatetest.sh ec2-user@10.0.19.82:/home/ec2-user/test
+#scp Fileupdatetest.sh ec2-user@10.0.19.82:/home/ec2-user/test
 
 
 #scp -r ec2-user@10.0.19.82:/home/ec2-user/test
