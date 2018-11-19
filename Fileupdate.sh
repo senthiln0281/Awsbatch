@@ -42,7 +42,7 @@ ssh -t -t ec2-user@10.0.19.82 -o StrictHostKeyChecking=no
 
 #ssh -t ec2-user@10.0.19.82
 
-sleep 10
+
 
 cd /home/ec2-user/test
 
