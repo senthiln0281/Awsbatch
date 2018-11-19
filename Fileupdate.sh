@@ -43,6 +43,8 @@ echo $HOSTNAME
 cd /home/ec2-user/test
 yes | sudo unzip test.zip
 EOF
+
+exit 0
 #-o StrictHostKeyChecking=no
 
 #ssh -t ec2-user@10.0.19.82
