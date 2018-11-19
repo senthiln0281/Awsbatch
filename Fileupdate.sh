@@ -29,7 +29,7 @@ ls -l
 #scp -r ec2-user@10.0.19.82:/home/ec2-user/test
 
 
-scp -r /var/lib/jenkins/workspace/FileUpdate ec2-user@10.0.19.82:/home/ec2-user/test
+scp -r /var/lib/jenkins/workspace ec2-user@10.0.19.82:/home/ec2-user/test
 
 #cd /var/lib/jenkins/workspace/FileUpdate
 
