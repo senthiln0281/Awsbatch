@@ -27,7 +27,7 @@ scp Fileupdate.sh ec2-user@10.0.19.82:/home/ec2-user/test
 
 cd /var/lib/jenkins/workspace/FileUpdate
 
-rm -f *
+#rm -f *
 
 git clone -test Fileupdate https://github.com/senthiln0281/Awsbatch.git
 
