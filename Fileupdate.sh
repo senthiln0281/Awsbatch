@@ -29,7 +29,7 @@ ls -l
 #scp -r ec2-user@10.0.19.82:/home/ec2-user/test
 
 
-scp ~/local_dir/* ec2-user@10.0.19.82:/home/ec2-user/test
+scp ~/var/lib/jenkins/workspace/Awsbatch/* ec2-user@10.0.19.82:/home/ec2-user/test
 
 #cd /var/lib/jenkins/workspace/FileUpdate
 
