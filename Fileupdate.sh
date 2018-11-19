@@ -25,17 +25,17 @@ ls -l
 
 scp Fileupdatetest.sh ec2-user@10.0.19.82:/home/ec2-user/test
 
-cd /var/lib/jenkins/workspace/FileUpdate
+#cd /var/lib/jenkins/workspace/FileUpdate
 
-rm -f *
+#rm -f *
 
 git clone -branch test https://github.com/senthiln0281/Awsbatch.git
 
-git pull --rebase origin
+#git pull --rebase origin
 
 ls -l
 
 
-scp as.txt ec2-user@10.0.19.82:/home/ec2-user/test1
+#scp as.txt ec2-user@10.0.19.82:/home/ec2-user/test1
 
 
