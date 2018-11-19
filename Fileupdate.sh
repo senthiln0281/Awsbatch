@@ -12,6 +12,8 @@ git pull --rebase origin
 
 ls -l
 
+#rm -f *
+
 #Create .ssh directory to save destination server credentials
 #mkdir .ssh
 
@@ -23,7 +25,11 @@ ls -l
 
 scp Fileupdate.sh ec2-user@10.0.19.82:/home/ec2-user/test
 
-#rm -f *
+cd /var/lib/jenkins/workspace/FileUpdate
+
+rm -f *
+
+
 
 
 
