@@ -42,4 +42,4 @@ EOF
 
 cd /var/lib/jenkins/workspace
 
-sudo rm -rf *.*
+sudo rm -rf FileUpdate FileUpdate@tmp
