@@ -35,7 +35,7 @@ scp update.zip ec2-user@10.0.19.82:/home/ec2-user/update
 ssh -t -t ec2-user@10.0.19.82 << EOF
 
 cd /home/ec2-user/update
-yes | sudo unzip update.zip test.zip
-sudo rm -rf update.zip
+yes | sudo unzip update.zip 
+sudo rm -rf update.zip test.zip
 exit
 EOF
