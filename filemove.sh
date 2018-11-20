@@ -27,7 +27,8 @@ EOF
 
 
 echo $HOSTNAME
-cd /var/lib/jenkins/workspace/update/
+#cd /var/lib/jenkins/workspace/update/
+pwd
 
 zip update.zip *.*
 
