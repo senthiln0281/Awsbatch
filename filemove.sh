@@ -40,6 +40,6 @@ sudo rm -rf update.zip test.zip
 exit
 EOF
 
-cd /var/lib/jenkins/workspace
+#cd /var/lib/jenkins/workspace
 
-sudo rm -rf FileUpdate FileUpdate@tmp
+#sudo rm -rf FileUpdate FileUpdate@tmp
