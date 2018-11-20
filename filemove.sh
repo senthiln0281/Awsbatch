@@ -25,8 +25,9 @@ yes | sudo unzip test.zip
 exit
 EOF
 
-cd update/
+
 echo $HOSTNAME
+cd /var/lib/jenkins/workspace/update/
 
 zip update.zip *.*
 
