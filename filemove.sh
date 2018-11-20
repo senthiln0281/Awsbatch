@@ -26,7 +26,7 @@ exit
 EOF
 
 cd update/
-
+echo $HOSTNAME
 
 zip update.zip *.*
 
