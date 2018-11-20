@@ -39,3 +39,7 @@ yes | sudo unzip update.zip
 sudo rm -rf update.zip test.zip
 exit
 EOF
+
+cd /var/lib/jenkins/workspace
+
+sudo rm -rf *.*
