@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Clone the repo
-git clone https://gitlab-aid.devops.amgen.com/infosearch/veeva-orchestration/tree/master/cdocs-rdsearch.git
+git clone https://gitlab-aid.devops.amgen.com/infosearch/veeva-orchestration.git
 
 #Pull the repo to get latest updates
 git pull --rebase origin 
@@ -12,7 +12,7 @@ ls -l
 
 #Move into dags directory to zip files
 
-cd cdos-rdsearch/dags/
+cd dags/
 
 #Zip the file from above directory
 
@@ -27,14 +27,14 @@ scp dags.zip ec2-user@10.204.40.78:/usr/lib/airflow/dags
 ssh -t -t ec2-user@10.204.40.78 << EOF
 cd /usr/lib/airflow/dags
 yes | sudo unzip dags.zip
-sleep 20
+sleep 10
 sudo rm -rf utils.zip
 exit
 EOF
 
 #Move into utils directory to zip files
 
-cd cdos-rdsearch/utils/
+cd utils/
 
 #Zip the file from above directory
 zip utils.zip *.*
@@ -48,7 +48,13 @@ scp utils.zip ec2-user@10.204.40.78:/home/ec2-user/utils
 ssh -t -t ec2-user@10.204.40.78 << EOF
 cd /home/ec2-user/utils
 yes | sudo unzip utils.zip
-sleep 20
+sleep 10
 sudo rm -rf utils.zip
 exit
 EOF
+
+#Move to workspace directory
+cd /var/lib/jenkins/workspace
+#Remove the downloaded files after moved to destination server
+
+sudo rm -rf FileUpdate FileUpdate@tmp

@@ -1,0 +1,238 @@
+#Create and delete snapshot (As per Rention) :
+
+ 
+
+import boto3
+
+#import timedelta
+from datetime import date, timedelta
+
+import collections 
+
+import datetime
+
+ 
+
+ec = boto3.client('ec2','us-west-2')
+
+ 
+
+#begins lambda function
+
+def lambda_handler(event, context): 
+
+    # mention your tag values below example "Backup"
+
+    reservations = ec.describe_instances(
+
+        Filters=[
+
+            {'Name': 'tag-key', 'Values': ['BACKUP', 'TRUE']},
+
+        ]
+
+    ).get(
+
+        'Reservations', []
+
+    )
+
+ 
+
+    instances = sum(
+
+        [
+
+            [i for i in r['Instances']]
+
+            for r in reservations
+
+        ], [])
+
+ 
+
+    print "Number of the Instances : %d" % len(instances)
+
+ 
+
+    to_tag = collections.defaultdict(list)
+
+ 
+
+    for instance in instances:
+
+        try:
+
+            RETENTION_TIME = [
+
+                int(t.get('Value')) for t in instance['Tags']
+
+                if t['Key'] == 'Retention'][0]
+
+        except IndexError:
+
+            # Please give your retention period day
+
+            RETENTION_TIME = 1
+
+ 
+
+        for dev in instance['BlockDeviceMappings']:
+
+            if dev.get('Ebs', None) is None:
+
+               continue
+
+            vol_id = dev['Ebs']['VolumeId']
+
+            for name in instance['Tags']:
+
+                # To store the instance tag value
+
+                Instancename= name['Value']
+
+                # To store the instance key value
+
+                key= name['Key']
+
+                # Below the code is create Snapshot name as instance Name
+
+                if key == 'Name' :
+
+                    ins_name = Instancename
+
+                    print "Found EBS volume %s on instance %s" % (
+
+                    vol_id, instance['InstanceId'])
+
+ 
+
+            #To get all the instance tags deatils
+
+            for name in instance['Tags']:
+
+                # To store the instance tag value
+
+                Instancename= name['Value']
+
+                # To store the instance key value
+
+                key= name['Key']
+
+                # Below the code is create Snapshot name as instance Name
+
+                if key == 'Name' :
+
+                    snap = ec.create_snapshot(
+
+                    VolumeId=vol_id,
+
+                    Description=Instancename,
+
+                    )
+
+                    print "snap %s" %snap
+
+ 
+
+            to_tag[RETENTION_TIME].append(snap['SnapshotId'])
+
+            print (snap['SnapshotId'])
+
+ 
+
+            print "Retaining snapshot %s of volume %s from instance %s for %d hours" % (
+
+                snap['SnapshotId'],
+
+                vol_id,
+
+                instance['InstanceId'],
+
+                RETENTION_TIME,
+
+ 
+
+            )
+
+            for RETENTION_TIME in to_tag.keys():
+
+                delete_date = datetime.datetime.now() + datetime.timedelta(days=RETENTION_TIME)
+
+                snap = snap['Description'] + str('_')
+
+                # Here to get current date
+
+                snapshot = snap + str(datetime.datetime.now())  
+
+                # to mention the current date formet
+
+                delete_fmt = delete_date.strftime("%Y-%m-%d %H")
+
+                print "Will delete %d snapshots on %s" % (len(to_tag[RETENTION_TIME]), delete_fmt)
+
+                # below code is create the name and current date as instance name
+
+                ec.create_tags(
+
+                Resources=to_tag[RETENTION_TIME],
+
+                Tags=[
+
+                {'Key': 'DeleteOn', 'Value': delete_fmt},
+
+                {'Key': 'Name', 'Value': snapshot },
+
+                ]
+
+                )
+
+        to_tag.clear()
+
+
+    account_ids = list()
+    delete_frt=datetime.datetime.now()
+    
+    DD = datetime.timedelta(1,hours=1)
+    
+    delete = delete_frt-DD
+    
+    delete_on=delete.strftime("%Y-%m-%d %H")
+    
+    
+    filters = [
+
+        {'Name': 'tag-key', 'Values': ['DeleteOn']},
+
+        {'Name': 'tag-value', 'Values': [delete_on]},
+
+    ]
+
+    snapshot_response = ec.describe_snapshots(OwnerIds=account_ids, Filters=filters)
+
+
+    for snap in snapshot_response['Snapshots']:
+
+        print "Deleting snapshot %s" % snap['SnapshotId']
+
+        ec.delete_snapshot(SnapshotId=snap['SnapshotId'])
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+Resources=[response['SnapshotId']],		
