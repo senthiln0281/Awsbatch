@@ -11,11 +11,11 @@ ls -l
 
 #Move into dags directory to zip files
 
-cd dags/
+cd awsbatch/
 
 #Zip the file from above directory
 
-zip dags.zip *.*
+zip awsbatch.zip *.*
 
 #Create temp S3 bucket
 
@@ -23,7 +23,7 @@ aws s3api create-bucket --bucket 4977041 --region us-west-2
 
 #Copy the files to S3
 
-aws s3 cp dags.zip s3://4977041/dags.zip
+aws s3 cp awsbatch.zip s3://4977041/awsbatch.zip
 
 
 
