@@ -27,7 +27,7 @@ cd \
 
 pwd
 
-#aws --version
+aws --version
 
 #Create temp S3 bucket
 
