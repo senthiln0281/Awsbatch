@@ -19,6 +19,8 @@ ls -l
 
 zip update.zip *.*
 
+cd ..
+
 aws --version
 
 #Create temp S3 bucket
