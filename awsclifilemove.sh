@@ -19,7 +19,7 @@ ls -l
 
 zip update.zip *.*
 
-aws s3 ls
+aws --version
 
 #Create temp S3 bucket
 
