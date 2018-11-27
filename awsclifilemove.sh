@@ -27,6 +27,8 @@ cd \
 
 pwd
 
+~/.local/bin/aws
+
 aws --version
 
 #Create temp S3 bucket
