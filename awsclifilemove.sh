@@ -13,6 +13,8 @@ ls -l
 
 cd Awsbatch/
 
+ls -l
+
 #Zip the file from above directory
 
 #zip Awsbatch.zip *.*
