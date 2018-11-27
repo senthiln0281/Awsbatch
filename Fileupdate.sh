@@ -18,6 +18,8 @@ zip test.zip *.*
 
 ls -l
 
+ssh test@52.41.92.119
+
 #rm -f *
 
 #Create .ssh directory to save destination server credentials
@@ -30,7 +32,7 @@ ls -l
 #Copy the files from jenkins server to remote server
 
 #scp Fileupdatetest.sh ec2-user@10.0.19.82:/home/ec2-user/test
-ssh test@52.41.92.119
+
 
 #scp -r ec2-user@10.0.19.82:/home/ec2-user/test
 
