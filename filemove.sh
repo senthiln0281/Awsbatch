@@ -15,11 +15,11 @@ cd test/
 
 zip test.zip *.*
 
-scp test.zip ec2-user@10.0.19.82:/home/ec2-user/test
+scp test.zip test@52.41.92.119:/home/test/test
 
-ssh -t -t ec2-user@10.0.19.82 << EOF
+ssh -t -t test@52.41.92.119 << EOF
 
-cd /home/ec2-user/test
+cd /home/test/test
 yes | sudo unzip test.zip
 sudo rm -rf test.zip update.zip
 exit
@@ -31,11 +31,11 @@ cd update/
 
 zip update.zip *.*
 
-scp update.zip ec2-user@10.0.19.82:/home/ec2-user/update
+scp update.zip test@52.41.92.119:/home/test/update
 
-ssh -t -t ec2-user@10.0.19.82 << EOF
+ssh -t -t test@52.41.92.119 << EOF
 
-cd /home/ec2-user/update
+cd /home/test/update
 yes | sudo unzip update.zip 
 sudo rm -rf update.zip test.zip
 exit
