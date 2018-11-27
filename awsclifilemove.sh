@@ -11,21 +11,21 @@ ls -l
 
 #Move into dags directory to zip files
 
-cd Awsbatch/
+cd update/
 
 ls -l
 
 #Zip the file from above directory
 
-#zip Awsbatch.zip *.*
+zip update.zip *.*
 
 #Create temp S3 bucket
 
-#aws s3 create-bucket --bucket 4977041 --region us-west-2
+aws s3 create-bucket --bucket 4977041 --region us-west-2
 
 #Copy the files to S3
 
-#aws s3 cp Awsbatch.zip s3://4977041/Awsbatch.zip
+aws s3 cp Awsbatch.zip s3://4977041/update.zip
 
 
 
