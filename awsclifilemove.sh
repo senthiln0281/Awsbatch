@@ -28,7 +28,7 @@ aws --version
 
 #Copy the files to S3
 
-#aws s3 cp Awsbatch.zip s3://4977041/update.zip
+aws s3 cp Awsbatch.zip s3://497704/update.zip
 
 
 
