@@ -27,7 +27,9 @@ cd \
 
 pwd
 
-~/.local/bin/aws
+cd .local/bin/
+
+pwd
 
 aws --version
 
