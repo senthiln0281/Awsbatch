@@ -19,17 +19,6 @@ ls -l
 
 zip update.zip *.*
 
-cd ..
-
-pwd
-
-cd \
-
-pwd
-
-cd .local/bin/
-
-pwd
 
 aws --version
 
