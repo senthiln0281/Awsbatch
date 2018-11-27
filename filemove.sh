@@ -41,6 +41,6 @@ sudo rm -rf update.zip test.zip
 exit
 EOF
 
-cd /var/lib/jenkins/workspace
+/var/lib/jenkins/workspace/awsclifilemove
 
-sudo rm -rf FileUpdate FileUpdate@tmp
+#sudo rm -rf FileUpdate FileUpdate@tmp

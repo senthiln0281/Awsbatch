@@ -25,12 +25,5 @@ aws s3 create-bucket --bucket 4977041 --region us-west-2
 
 aws s3 cp Awsbatch.zip s3://4977041/Awsbatch.zip
 
-#Invoke Lambda function
-
-aws lambda invoke \
-    --function-name arn:aws:lambda:us-west-2:767885750242:function:awsclifilemove\
-    --invocation-type RequestResponse \
-    outfile.txt
-
 
 
