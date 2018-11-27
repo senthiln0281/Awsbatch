@@ -21,7 +21,13 @@ zip update.zip *.*
 
 cd ..
 
-aws --version
+pwd
+
+cd \
+
+pwd
+
+#aws --version
 
 #Create temp S3 bucket
 
