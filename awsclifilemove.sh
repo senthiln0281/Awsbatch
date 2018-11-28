@@ -20,15 +20,15 @@ ls -l
 zip update.zip *.*
 
 
-aws --version
+.local/bin/aws --version
 
 #Create temp S3 bucket
 
-#aws s3 create-bucket --bucket 4977041 --region us-west-2
+aws s3 create-bucket --bucket 4977041 --region us-west-2
 
 #Copy the files to S3
 
-aws s3 cp Awsbatch.zip s3://497704/update.zip
+aws s3 cp Awsbatch.zip s3://4977041/update.zip
 
 
 

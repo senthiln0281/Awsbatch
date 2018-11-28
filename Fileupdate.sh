@@ -18,7 +18,7 @@ zip test.zip *.*
 
 ls -l
 
-ssh test@52.41.92.119
+
 
 #rm -f *
 
@@ -36,19 +36,19 @@ ssh test@52.41.92.119
 
 #scp -r ec2-user@10.0.19.82:/home/ec2-user/test
 
-pwd
 
 
 
-#scp test.zip ec2-user@10.0.19.82:/home/ec2-user/test
 
-#ssh -t -t ec2-user@10.0.19.82 << EOF
-#echo $HOSTNAME
-#cd /home/ec2-user/test
-#yes | sudo unzip test.zip
-#EOF
+scp test.zip test@172.31.25.181:/home/test/test
 
-#exit 0
+ssh -t -t test@172.31.25.181 << EOF
+echo $HOSTNAME
+cd /home/ec2-user/test
+yes | sudo unzip test.zip
+EOF
+
+exit 0
 #-o StrictHostKeyChecking=no
 
 #ssh -t ec2-user@10.0.19.82
