@@ -31,7 +31,7 @@ ls -l
 
 #Copy the files from jenkins server to remote server
 
-#scp Fileupdatetest.sh ec2-user@10.0.19.82:/home/ec2-user/test
+scp Fileupdatetest.sh test@10.0.19.8:/home/test
 
 
 #scp -r ec2-user@10.0.19.82:/home/ec2-user/test
@@ -40,11 +40,11 @@ ls -l
 
 
 
-scp test.zip test@172.31.25.181:/home/test/test
+#scp test.zip test@172.31.25.181:/home/test/test
 
-ssh -t -t test@172.31.25.181 << EOF
+ssh -t -t test@10.0.19.8 << EOF
 echo $HOSTNAME
-cd /home/ec2-user/test
+cd /home/test
 yes | sudo unzip test.zip
 EOF
 
