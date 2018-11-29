@@ -1,1 +1,2 @@
+x-amz-server-side-encryption
 test
